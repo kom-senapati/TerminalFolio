@@ -76,7 +76,41 @@ All special commands, social links, title, and description are configured in the
 }
 ```
 
-### Adding New Commands
+## Updating Your Portfolio Data
+
+To update your portfolio details, edit the `src/config/user.json` file. Modify the fields as needed:
+
+- `"name"`: Your full name.
+- `"email"`: Your contact email.
+- `"bio"`: A short description about yourself.
+- `"resume"`: A link to your resume (Google Drive, website, etc.).
+- `"socials"`: Links to your social profiles.
+- `"projects"`: A list of your projects with a name, description, and link.
+
+### Example:
+
+```json
+{
+  "name": "Jane Doe",
+  "email": "jane.doe@example.com",
+  "bio": "Full-stack developer interested in cloud and AI.",
+  "resume": "https://example.com/jane-resume.pdf",
+  "socials": {
+    "github": "https://github.com/janedoe",
+    "linkedin": "https://linkedin.com/in/janedoe",
+    "twitter": "https://twitter.com/janedoe"
+  },
+  "projects": [
+    {
+      "name": "Task Manager App",
+      "description": "A web-based task management system using React and Firebase.",
+      "link": "https://github.com/janedoe/task-manager"
+    }
+  ]
+}
+```
+
+### Adding New Commands:
 
 To add a new special command, simply add it to the `specialCommands` object in `commands.json`.
 
