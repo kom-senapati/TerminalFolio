@@ -1,0 +1,18 @@
+{
+    "name": "[Your Name]",
+    "email": "[Your Email]",
+    "bio": "[Short Bio]",
+    "resume": "[Your Resume Link]",
+    "socials": {
+      "github": "[Your GitHub Link]",
+      "linkedin": "[Your LinkedIn Link]",
+      "twitter": "[Your Twitter Link]"
+    },
+    "projects": [
+      {
+        "name": "[Project Name]",
+        "description": "[Short Project Description]",
+        "link": "[Project Link]"
+      }
+    ]
+  }
