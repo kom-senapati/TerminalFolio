@@ -33,11 +33,6 @@
       "description": "Change terminal theme. 🎨",
       "isFunction": true
     },
-    "theme ubuntu": {
-      "output": "theme ubuntu",
-      "description": "Change terminal theme to Ubuntu-based theme. 🐧",
-      "isFunction": true
-    },
     "matrix": {
       "output": "matrix",
       "description": "Activate matrix effect. 🌌 Follow the white rabbit! 🐇",

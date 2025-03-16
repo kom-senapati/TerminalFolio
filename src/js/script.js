@@ -318,6 +318,19 @@ const themes = {
     "--white-color": "#FFFFFF",
     "--bright-black-color": "#5C5C5C",
     "--font-family": "Consolas, monospace" // Added font family
+  },
+  ubuntu: {
+    "--background-color": "#300A24", // Ubuntu terminal default
+    "--foreground-color": "#EEEEEE", // Light text
+    "--red-color": "#E95420", // Ubuntu orange
+    "--green-color": "#7CBF42", // Ubuntu green
+    "--yellow-color": "#F4BF75", // Ubuntu yellow
+    "--blue-color": "#2C78BF", // Ubuntu blue
+    "--purple-color": "#76428A", // Ubuntu purple
+    "--cyan-color": "#33BAB4", // Ubuntu cyan
+    "--white-color": "#D3D7CF", // Soft white
+    "--bright-black-color": "#555753", // Ubuntu gray
+    "--font-family": "Ubuntu Mono, monospace" // Ubuntu's default terminal font
   }
 };
 
