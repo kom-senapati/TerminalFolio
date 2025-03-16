@@ -1,0 +1,22 @@
+{
+  "specialCommands": {
+    "whois": {
+      "description": "Displays information about a user",
+      "output": "User information output"
+    },
+    "social": {
+      "description": "Displays social media links",
+      "output": "Social media links output"
+    },
+    "projects": {
+      "description": "Displays a list of projects",
+      "output": "Projects list output"
+    }
+  },
+  "generalCommands": {
+    "echo": {
+      "description": "Repeats the input text",
+      "output": "pika pika"
+    }
+  }
+}

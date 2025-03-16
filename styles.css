@@ -40,7 +40,7 @@ body {
     font-weight: 500;
     font-style: normal;
     font-size: 1.1rem;
-    padding: 1rem;
+    padding: 0 1rem 1rem 1rem;
 }
 
 ::-moz-selection {
@@ -56,6 +56,7 @@ body {
 
 #terminal-output {
     white-space: pre-line;
+    padding-top: 0.5rem !important;
 }
 
 .output {
@@ -181,4 +182,48 @@ table {
 #terminal-output, #input-line {
     position: relative;
     z-index: 2;
+}
+
+.terminal-header {
+    position: sticky;
+    top: 0;
+    display: flex;
+    align-items: center;
+    padding: 8px 12px;
+    background-color: var(--bright-black-color);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    z-index: 3;
+    margin: -1rem; /* Counteract terminal padding */
+    margin-bottom: 0.5rem;
+}
+
+.window-controls {
+    display: flex;
+    gap: 8px;
+}
+
+.control {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.control:hover {
+    opacity: 0.8;
+}
+
+.close { background-color: #ff5f56; }
+.minimize { background-color: #ffbd2e; }
+.maximize { background-color: #27c93f; }
+
+.terminal-title {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--foreground-color);
+    font-size: 0.85rem;
+    pointer-events: none;
 }

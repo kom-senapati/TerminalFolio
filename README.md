@@ -46,6 +46,7 @@ Customizable commands that showcase your personal information, projects, and ski
 - `joke` - Display a random programming joke
 - `theme [name]` - Change the terminal theme
 - `matrix` - Apply a matrix effect. Press Esc to exit
+- `rps [rock|paper|scissor]` - Start a round of rock-paper-scissor with the terminal
 
 ## Customization
 

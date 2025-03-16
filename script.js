@@ -306,6 +306,19 @@ const themes = {
     "--bright-black-color": "#808080",
     "--font-family": "JetBrains Mono, monospace"
   },
+  ubuntu: {
+    "--background-color": "#300A24", // Ubuntu terminal default
+    "--foreground-color": "#EEEEEE", // Light text
+    "--red-color": "#E95420", // Ubuntu orange
+    "--green-color": "#7CBF42", // Ubuntu green
+    "--yellow-color": "#F4BF75", // Ubuntu yellow
+    "--blue-color": "#2C78BF", // Ubuntu blue
+    "--purple-color": "#76428A", // Ubuntu purple
+    "--cyan-color": "#33BAB4", // Ubuntu cyan
+    "--white-color": "#D3D7CF", // Soft white
+    "--bright-black-color": "#555753", // Ubuntu gray
+    "--font-family": "Ubuntu Mono, monospace" // Ubuntu's default terminal font
+  },
   powershell: {
     "--background-color": "#012456",
     "--foreground-color": "#ffffff",
@@ -451,6 +464,8 @@ function processCommand(commandInput) {
             return 'Matrix effect activated. Click × or press ESC to exit. 🌐';
           }
           return 'Effect already running! Click × or press ESC to exit';
+        case "rps":
+          return handleRPS(args);
         default:
           return `Error: Function ${specialCmd.output} not implemented`;
       }
@@ -683,4 +698,38 @@ function createMatrixEffect() {
   
     // Start animation
     draw();
+}
+
+function handleRPS(args) {
+  if (args.length === 0) {
+    return 'Usage: rps [rock|paper|scissors]';
+  }
+
+  const userChoice = args[0].toLowerCase();
+  const validChoices = ['rock', 'paper', 'scissors'];
+  
+  if (!validChoices.includes(userChoice)) {
+    return `Invalid choice: ${userChoice}. Please choose rock, paper, or scissors.`;
+  }
+
+  const terminalChoice = validChoices[Math.floor(Math.random() * 3)];
+  const result = determineWinner(userChoice, terminalChoice);
+
+  const emojis = {
+    rock: '🪨',
+    paper: '📄',
+    scissors: '✂️'
+  };
+
+  return `You chose ${emojis[userChoice]} ${userChoice}\nTerminal chose ${emojis[terminalChoice]} ${terminalChoice}\nResult: ${result}`;
+}
+
+function determineWinner(user, terminal) {
+  if (user === terminal) return 'It\'s a tie! 🤝';
+  if ((user === 'rock' && terminal === 'scissors') ||
+      (user === 'paper' && terminal === 'rock') ||
+      (user === 'scissors' && terminal === 'paper')) {
+    return 'You win! 🎉';
+  }
+  return 'Terminal wins! 💻';
 }
