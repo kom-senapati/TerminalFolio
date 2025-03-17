@@ -1,6 +1,77 @@
 {
   "title": "Kom | PorfolioShell",
   "description": "Welcome to Portfolio shell,\nType help to see all the commands",
+
+    "specialCommands": {
+      "whois": {
+        "output": "    Name: K Om Senapati\n    Education: Bachelor of Technology in CSE @ OUTR, BBSR\n    Interests: Python 🐍, SQL 📊, Backend Engineering 💻, Data Science 📈",
+        "description": "Who is kom? 🤔 The brains behind this terminal! 💡"
+      },
+      "whoami": {
+        "output": "You are a visitor to our terminal. We will soon find out who you are. 🕵️‍♂️ But for now, enjoy the mystery! 🕵️‍♀️",
+        "description": "Who are you? 🧐 Dive into self-discovery! 🌊"
+      },
+      "projects": {
+        "output": "Here's the project gallery: <a href=\"https://project-gallery-eight.vercel.app/\" class=\"link\" target=\"_blank\">Project Gallery</a> 🌟",
+        "description": "Check out projects. 💻 Prepare to be amazed! ✨"
+      },
+      "contact": {
+        "output": "Contact me at komnoob123@gmail.com 📧 Just don't spam me with cat pictures! 🐱",
+        "description": "Get in touch with Kom. 📬 Let's connect! 🔗"
+      },
+      "social": {
+        "output": "social",
+        "description": "Connect with me. 🌐 Let's network! 🤝",
+        "isFunction": true,
+        "loading": "Fetching social links... ⏳"
+      },
+      "joke": {
+        "output": "joke",
+        "description": "Get a programming joke. 😄",
+        "isFunction": true,
+        "loading": "Fetching a hilarious joke... 😂"
+      },
+      "fact": {
+        "output": "fact",
+        "description": "Get a fun fact. 🤯",
+        "isFunction": true,
+        "loading": "Fetching an interesting fact... ⏳"
+      },
+      "osinfo": {
+        "output": "osinfo",
+        "description": "Get the OS info of the user",
+        "isFunction": true,
+        "loading": "Gathering system details... 🖥️"
+      },
+      "quote": {
+        "output": "quote",
+        "description": "Get a motivational quote. 📝",
+        "isFunction": true,
+        "loading": "Looking for inspiration... ✨"
+      },
+      "advice": {
+        "output": "advice",
+        "description": "Get a random life advice. 🤔",
+        "isFunction": true,
+        "loading": "Fetching some wise words... 🧠"
+      },
+      "trivia": {
+        "output": "trivia",
+        "description": "Test your knowledge with a trivia fact! 🎓",
+        "isFunction": true,
+        "loading": "Preparing a trivia challenge... 🧐"
+      },
+      "theme": {
+        "output": "theme",
+        "description": "Change terminal theme. 🎨",
+        "isFunction": true
+      },
+      "matrix": {
+        "output": "matrix",
+        "description": "Activate matrix effect. 🌌 Follow the white rabbit! 🐇",
+        "isFunction": true
+      }
+=======
   "specialCommands": {
     "whois": {
       "output": "    Name: K Om Senapati\n    Education: Bachelor of Technology in CSE @ OUTR, BBSR\n    Interests: Python 🐍, SQL 📊, Backend Engineering 💻, Data Science 📈",
@@ -42,8 +113,10 @@
       "output": "rps",
       "description": "Play Rock-Paper-Scissors against the terminal. 🪨📄✂️",
       "isFunction": true
+
     }
-  },
+  ,
+  
   "socials": {
     "github": "<a href=\"https://github.com/kom-senapati\" target=\"_blank\" class=\"link\">github.com/kom-senapati</a>",
     "linkedin": "<a href=\"https://www.linkedin.com/in/kom-senapati/\" target=\"_blank\" class=\"link\">linkedin.com/in/kom-senapati</a>",
