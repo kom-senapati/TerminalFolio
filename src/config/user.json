@@ -1,7 +1,7 @@
 {
-    "name": "[Your Name]",
-    "email": "[Your Email]",
-    "bio": "[Short Bio]",
+    "name": "K Om Senapati",
+    "email": "komnoob123@gmail.com",
+    "bio": "Bachelor of Technology in CSE @ OUTR, BBSR. Interests: Python, SQL, Backend Engineering, Data Science.",
     "resume": "[Your Resume Link]",
     "socials": {
       "github": "[Your GitHub Link]",
@@ -10,9 +10,9 @@
     },
     "projects": [
       {
-        "name": "[Project Name]",
-        "description": "[Short Project Description]",
-        "link": "[Project Link]"
+        "name": "Project Gallery",
+        "description": "A gallery showcasing various projects.",
+        "link": "[Project Gallery Link]"
       }
     ]
-  }
+}
