@@ -439,6 +439,16 @@ function processCommand(commandInput) {
           return output;
         case "joke":
           return fetchJoke();
+        case "fact":
+          return fetchFact();
+        case "quote":
+          return fetchQuote();
+        case "advice":
+          return fetchAdvice();
+        case "trivia":
+          return fetchTrivia();
+        case "osinfo":
+          return getOSInfo();
         case "theme":
           if (args.length === 0) {
             let availableThemesMsg = "Available themes: ";
@@ -492,6 +502,90 @@ async function fetchJoke() {
     return "Failed to fetch joke. 😕";
   }
 }
+
+async function fetchFact() {
+  try {
+    const response = await fetch("https://uselessfacts.jsph.pl/random.json?language=en");
+    const data = await response.json();
+    return data.text;
+  } catch (error) {
+    console.error("Error fetching fact:", error);
+    return "Failed to fetch fact. 😕";
+  }
+}
+
+async function fetchQuote() {
+  const fallbackQuotes = [
+    `"The only way to do great work is to love what you do." - Steve Jobs`,
+    `"Success is not final, failure is not fatal: It is the courage to continue that counts." - Winston Churchill`,
+    `"Your time is limited, so don’t waste it living someone else’s life." - Steve Jobs`,
+    `"Do what you can, with what you have, where you are." - Theodore Roosevelt`,
+    `"Don’t watch the clock; do what it does. Keep going." - Sam Levenson`,
+    `"Opportunities don't happen, you create them." - Chris Grosser`,
+    `"Hardships often prepare ordinary people for an extraordinary destiny." - C.S. Lewis`,
+    `"It does not matter how slowly you go as long as you do not stop." - Confucius`,
+    `"Believe you can and you're halfway there." - Theodore Roosevelt`,
+    `"Act as if what you do makes a difference. It does." - William James`,
+    `"The best way to predict the future is to create it." - Peter Drucker`,
+    `"Strive not to be a success, but rather to be of value." - Albert Einstein`,
+    `"Courage is resistance to fear, mastery of fear—not absence of fear." - Mark Twain`,
+    `"Dream big and dare to fail." - Norman Vaughan`,
+    `"Your limitation—it's only your imagination." - Unknown`
+  ];
+
+  try {
+    const response = await fetch("https://api.quotable.io/random");
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    const data = await response.json();
+    return `"${data.content}" - ${data.author}`;
+  } catch (error) {
+    console.error("Error fetching quote:", error);
+
+    // Fallback: Return a random predefined quote
+    return fallbackQuotes[Math.floor(Math.random() * fallbackQuotes.length)];
+  }
+}
+
+
+
+async function fetchAdvice() {
+  try {
+    const response = await fetch("https://api.adviceslip.com/advice");
+    const data = await response.json();
+    return data.slip.advice;
+  } catch (error) {
+    console.error("Error fetching advice:", error);
+    return "Failed to fetch advice. 😕";
+  }
+}
+
+async function fetchTrivia() {
+  try {
+    const response = await fetch("https://opentdb.com/api.php?amount=1&type=multiple");
+    const data = await response.json();
+    return `Trivia: ${data.results[0].question}`;
+  } catch (error) {
+    console.error("Error fetching trivia:", error);
+    return "Failed to fetch trivia. 😕";
+  }
+}
+
+function getOSInfo() {
+  let os = "Unknown OS";
+  const userAgent = navigator.userAgent.toLowerCase();
+
+  if (userAgent.includes("win")) os = "Windows";
+  else if (userAgent.includes("mac")) os = "MacOS";
+  else if (userAgent.includes("linux")) os = "Linux";
+  else if (userAgent.includes("android")) os = "Android";
+  else if (userAgent.includes("iphone") || userAgent.includes("ipad")) os = "iOS";
+
+  return `Operating System: ${os}`;
+}
+
+
 
 function setTheme(theme) {
   const selectedTheme = themes[theme];
