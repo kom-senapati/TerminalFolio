@@ -167,7 +167,6 @@ table {
 
 #terminal {
     position: relative !important;
-    overflow: hidden;
 }
   
 #terminal canvas {
