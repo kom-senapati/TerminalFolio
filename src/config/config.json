@@ -1,6 +1,6 @@
 {
-  "title": "Kom | PortfolioShell",
-  "header": "Welcome to Portfolio shell,\nType help to see all the commands",
+  "title": "Name | PortfolioShell",
+  "header": "Welcome to Portfolio shell, Type help to see all the commands",
   "themes": {
     "default": { "--background-color": "#1F2430", "--foreground-color": "#FFA759" },
     "dracula": { "--background-color": "#282a36", "--foreground-color": "#f8f8f2" }
