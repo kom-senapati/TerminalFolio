@@ -492,6 +492,7 @@ function scrollToBottom() {
 
 async function fetchJoke() {
   try {
+    displayLoader(true);
     const response = await fetch(
       "https://v2.jokeapi.dev/joke/Programming?blacklistFlags=nsfw,religious,political,racist,sexist,explicit&type=single"
     );
@@ -500,17 +501,22 @@ async function fetchJoke() {
   } catch (error) {
     console.error("Error fetching joke:", error);
     return "Failed to fetch joke. 😕";
+  } finally {
+    displayLoader(false);
   }
 }
 
 async function fetchFact() {
   try {
+    displayLoader(true);
     const response = await fetch("https://uselessfacts.jsph.pl/random.json?language=en");
     const data = await response.json();
     return data.text;
   } catch (error) {
     console.error("Error fetching fact:", error);
     return "Failed to fetch fact. 😕";
+  } finally {
+    displayLoader(false);
   }
 }
 
@@ -518,9 +524,9 @@ async function fetchQuote() {
   const fallbackQuotes = [
     `"The only way to do great work is to love what you do." - Steve Jobs`,
     `"Success is not final, failure is not fatal: It is the courage to continue that counts." - Winston Churchill`,
-    `"Your time is limited, so don’t waste it living someone else’s life." - Steve Jobs`,
+    `"Your time is limited, so don't waste it living someone else's life." - Steve Jobs`,
     `"Do what you can, with what you have, where you are." - Theodore Roosevelt`,
-    `"Don’t watch the clock; do what it does. Keep going." - Sam Levenson`,
+    `"Don't watch the clock; do what it does. Keep going." - Sam Levenson`,
     `"Opportunities don't happen, you create them." - Chris Grosser`,
     `"Hardships often prepare ordinary people for an extraordinary destiny." - C.S. Lewis`,
     `"It does not matter how slowly you go as long as you do not stop." - Confucius`,
@@ -532,8 +538,9 @@ async function fetchQuote() {
     `"Dream big and dare to fail." - Norman Vaughan`,
     `"Your limitation—it's only your imagination." - Unknown`
   ];
-
+  
   try {
+    displayLoader(true);
     const response = await fetch("https://api.quotable.io/random");
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);
@@ -544,7 +551,10 @@ async function fetchQuote() {
     console.error("Error fetching quote:", error);
 
     // Fallback: Return a random predefined quote
-    return fallbackQuotes[Math.floor(Math.random() * fallbackQuotes.length)];
+    const randomIndex = Math.floor(Math.random() * fallbackQuotes.length);
+    return fallbackQuotes[randomIndex];
+  } finally {
+    displayLoader(false);
   }
 }
 
@@ -552,23 +562,47 @@ async function fetchQuote() {
 
 async function fetchAdvice() {
   try {
+    displayLoader(true);
     const response = await fetch("https://api.adviceslip.com/advice");
     const data = await response.json();
     return data.slip.advice;
   } catch (error) {
     console.error("Error fetching advice:", error);
     return "Failed to fetch advice. 😕";
+  } finally {
+    displayLoader(false);
   }
 }
 
 async function fetchTrivia() {
   try {
+    displayLoader(true);
     const response = await fetch("https://opentdb.com/api.php?amount=1&type=multiple");
     const data = await response.json();
     return `Trivia: ${data.results[0].question}`;
   } catch (error) {
     console.error("Error fetching trivia:", error);
     return "Failed to fetch trivia. 😕";
+  } finally {
+    displayLoader(false);
+  }
+}
+
+//loader function
+function displayLoader(show) {
+  const loaderElement = document.getElementById("loader");
+  if (show) {
+    let dotCount = 0;
+    function updateLoader() {
+        loaderElement.textContent = `Loading${'.'.repeat(dotCount)}`;
+        dotCount = (dotCount + 1) % 5; 
+    }
+  
+    setInterval(updateLoader, 1500);
+
+    loaderElement.style.display = "block";
+  } else {
+    loaderElement.style.display = "none";
   }
 }
 
