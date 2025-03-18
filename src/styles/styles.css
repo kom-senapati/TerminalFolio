@@ -167,7 +167,6 @@ table {
 
 #terminal {
     position: relative !important;
-    overflow: hidden;
 }
   
 #terminal canvas {
@@ -226,4 +225,11 @@ table {
     color: var(--foreground-color);
     font-size: 0.85rem;
     pointer-events: none;
+}
+
+#loader{
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    padding-left: 1rem;
+    font-family: var(--font-family), monospace;
 }
