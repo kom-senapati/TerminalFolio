@@ -106,10 +106,125 @@ export function setTheme(theme) {
   }
 }
 
-export function createMatrixEffect() {
-  // ...existing code...
+function createMatrixEffect() {
+  // Create canvas
+  matrixCanvas = document.createElement('canvas');
+  const ctx = matrixCanvas.getContext('2d');
+  const container = document.getElementById('terminal');
+  
+  // Create control panel
+  const controls = document.createElement('div');
+  // Style elements
+  matrixCanvas.style.cssText = `
+      position: fixed;
+      pointer-events: none;
+      z-index: 1;
+      border-radius: 10px;
+      border: 2px solid var(--foreground-color);
+  `;
+
+  controls.style.cssText = `
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      z-index: 1000;
+      display: flex;
+      gap: 8px;
+  `;
+  controls.innerHTML = `
+    <span style="color: var(--green-color); cursor: default; user-select: none;">MATRIX</span>
+    <span style="color: var(--red-color); cursor: pointer; padding: 0 5px; user-select: none;" 
+          id="matrix-close">×</span>
+  `;
+
+  // Set canvas size
+  let fontSize = 14;
+  let columns;
+  
+  function resizeCanvas() {
+    const rect = container.getBoundingClientRect();
+    matrixCanvas.width = rect.width;
+    matrixCanvas.height = rect.height;
+    columns = Math.floor(matrixCanvas.width / fontSize);
+    matrixColumns = Array(columns).fill(0);
+  }
+
+  // Matrix characters
+  const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()';
+
+  // Rain effect
+  function draw() {
+    ctx.fillStyle = 'rgba(0, 0, 0, 0.08)';
+    ctx.fillRect(0, 0, matrixCanvas.width, matrixCanvas.height);
+    
+    ctx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue('--green-color');
+    ctx.font = `${fontSize}px ${getComputedStyle(document.documentElement).getPropertyValue('--font-family')}`;
+
+    matrixColumns.forEach((y, i) => {
+      const char = chars[Math.floor(Math.random() * chars.length)];
+      const x = i * fontSize;
+      ctx.fillText(char, x, y);
+      
+      if (y > matrixCanvas.height && Math.random() > 0.975) {
+        matrixColumns[i] = 0;
+      }
+      matrixColumns[i] += fontSize;
+    });
+
+    matrixAnimationFrame = requestAnimationFrame(draw);
+  }
+
+  // Event handlers
+  const handleKeyPress = (e) => {
+    if (e.key === 'Escape') stopMatrixEffect();
+  };
+
+  const stopMatrixEffect = () => {
+    cancelAnimationFrame(matrixAnimationFrame);
+    container.removeChild(controls);
+    container.removeChild(matrixCanvas);
+    window.removeEventListener('resize', resizeCanvas);
+    document.removeEventListener('keydown', handleKeyPress);
+    matrixCanvas = null;
+    displayOutput('Matrix effect deactivated');
+  };
+
+  // Initial setup
+  resizeCanvas();
+  window.addEventListener('resize', resizeCanvas);
+  document.addEventListener('keydown', handleKeyPress);
+  
+  // Add elements to DOM first
+  container.appendChild(controls);
+  container.appendChild(matrixCanvas);
+  
+  // Then add click listener
+  controls.querySelector('#matrix-close').addEventListener('click', stopMatrixEffect);
+
+  // Start animation
+  draw();
 }
 
-export function handleRPS(args) {
-  // ...existing code...
+function handleRPS(args) {
+if (args.length === 0) {
+  return 'Usage: rps [rock|paper|scissors]';
+}
+
+const userChoice = args[0].toLowerCase();
+const validChoices = ['rock', 'paper', 'scissors'];
+
+if (!validChoices.includes(userChoice)) {
+  return `Invalid choice: ${userChoice}. Please choose rock, paper, or scissors.`;
+}
+
+const terminalChoice = validChoices[Math.floor(Math.random() * 3)];
+const result = determineWinner(userChoice, terminalChoice);
+
+const emojis = {
+  rock: '🪨',
+  paper: '📄',
+  scissors: '✂️'
+};
+
+return `You chose ${emojis[userChoice]} ${userChoice}\nTerminal chose ${emojis[terminalChoice]} ${terminalChoice}\nResult: ${result}`;
 }
