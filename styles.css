@@ -226,3 +226,10 @@ table {
     font-size: 0.85rem;
     pointer-events: none;
 }
+
+#loader{
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    padding-left: 1rem;
+    font-family: var(--font-family), monospace;
+}
