@@ -3,14 +3,12 @@
 > **Interactive Terminal Portfolio Template**  
 > Simulates a command-line interface to showcase your projects and skills uniquely.
 
-
 ## ✨ Features  
 ✅ **Interactive Terminal Interface** – Realistic command-line experience  
 ✅ **Custom Commands** – Easily configurable JSON-based commands  
 ✅ **Themes** – Multiple built-in themes with a switch option  
 ✅ **Responsive Design** – Works on desktop & mobile  
 ✅ **Social Integration** – Connect GitHub, LinkedIn, Twitter  
-
 
 <details>
   <summary><h2>💻 Commands</h2></summary>
@@ -33,7 +31,6 @@
 
 </details>
 
-
 ## ⚙️ Customization  
 
 Customizable commands that showcase your personal information, projects, and skills:
@@ -52,9 +49,15 @@ Customizable commands that showcase your personal information, projects, and ski
 
 TermFolio is designed to be easily customizable without editing the core code:
 
-### commands.json
+### Configuration Files
 
-Edit `commands.json` to modify commands, social links, and descriptions.  
+Edit the following JSON files under the `src/config` directory to modify commands, social links, and descriptions:
+
+- `user.json`
+- `config.json`
+- `commands.json`
+
+Example `commands.json`:
 
 ```json
 {
