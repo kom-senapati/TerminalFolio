@@ -53,16 +53,37 @@ TermFolio is designed to be easily customizable without editing the core code:
 
 Edit the following JSON files under the `src/config` directory to modify commands, social links, and descriptions:
 
-- `user.json`
-- `config.json`
-- `commands.json`
+- `user.json` - Contains user-specific information like name, bio, and contact details.
+- `config.json` - General configuration settings for the terminal interface.
+- `commands.json` - Defines the commands and their respective outputs.
 
-Example `commands.json`:
+Example `user.json`:
+
+```json
+{
+  "name": "Your Name",
+  "bio": "A short bio about yourself",
+  "contact": {
+    "email": "your.email@example.com",
+    "phone": "123-456-7890"
+  }
+}
+```
+
+Example `config.json`:
 
 ```json
 {
   "title": "TermFolio",
   "description": "Interactive CLI Portfolio",
+  "theme": "default"
+}
+```
+
+Example `commands.json`:
+
+```json
+{
   "specialCommands": {
     "whois": { "output": "Your bio here", "description": "About you" },
     "projects": { "output": "Your projects list", "description": "Show projects" }
