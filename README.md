@@ -3,14 +3,12 @@
 > **Interactive Terminal Portfolio Template**  
 > Simulates a command-line interface to showcase your projects and skills uniquely.
 
-
 ## ✨ Features  
 ✅ **Interactive Terminal Interface** – Realistic command-line experience  
 ✅ **Custom Commands** – Easily configurable JSON-based commands  
 ✅ **Themes** – Multiple built-in themes with a switch option  
 ✅ **Responsive Design** – Works on desktop & mobile  
 ✅ **Social Integration** – Connect GitHub, LinkedIn, Twitter  
-
 
 <details>
   <summary><h2>💻 Commands</h2></summary>
@@ -33,7 +31,6 @@
 
 </details>
 
-
 ## ⚙️ Customization  
 
 Customizable commands that showcase your personal information, projects, and skills:
@@ -52,14 +49,41 @@ Customizable commands that showcase your personal information, projects, and ski
 
 TermFolio is designed to be easily customizable without editing the core code:
 
-### commands.json
+### Configuration Files
 
-Edit `commands.json` to modify commands, social links, and descriptions.  
+Edit the following JSON files under the `src/config` directory to modify commands, social links, and descriptions:
+
+- `user.json` - Contains user-specific information like name, bio, and contact details.
+- `config.json` - General configuration settings for the terminal interface.
+- `commands.json` - Defines the commands and their respective outputs.
+
+Example `user.json`:
+
+```json
+{
+  "name": "Your Name",
+  "bio": "A short bio about yourself",
+  "contact": {
+    "email": "your.email@example.com",
+    "phone": "123-456-7890"
+  }
+}
+```
+
+Example `config.json`:
 
 ```json
 {
   "title": "TermFolio",
   "description": "Interactive CLI Portfolio",
+  "theme": "default"
+}
+```
+
+Example `commands.json`:
+
+```json
+{
   "specialCommands": {
     "whois": { "output": "Your bio here", "description": "About you" },
     "projects": { "output": "Your projects list", "description": "Show projects" }
