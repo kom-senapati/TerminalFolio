@@ -1,7 +1,7 @@
 # ⚡ TerminalFolio 
 <p>
-<div style="width: 100px; height: 100px; overflow: hidden; border-radius: 10px;">
-    <img src="terminal_folio.jpg" style="width: 100%; height: 150%; object-fit: cover;">
+<div style="width: 25px; height: 25px; overflow: hidden; border-radius: 10px;">
+    <img src="terminal_folio.jpg" style="width: 25%; height: 25%; object-fit: cover;">
 </div>
 </p>
 
