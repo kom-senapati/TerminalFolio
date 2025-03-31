@@ -1,9 +1,8 @@
-# ⚡ TerminalFolio 
-<p>
-<div style="width: 25px; height: 25px; overflow: hidden; border-radius: 10px;">
-    <img src="terminal_folio.png" style="width: 25%; height: 25%; object-fit: cover;">
-</div>
-</p>
+<h1>
+    <img src="terminal_folio.png" style="width: 25px; height: 25px; border-radius: 10px; vertical-align: middle;">
+    TerminalFolio
+</h1>
+
 
 > **Interactive Terminal Portfolio Template**  
 > Simulates a command-line interface to showcase your projects and skills uniquely.
