@@ -16,7 +16,7 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: var(--background-color);
+    background: linear-gradient(135deg, #1F2430, #2A2E3B); 
     color: var(--foreground-color);
 }
 
@@ -25,6 +25,9 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    background-color: rgba(31, 36, 48, 0.9); 
+    border-radius: 15px; 
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); 
 }
 
 #terminal {
@@ -43,8 +46,45 @@ body {
     padding: 1rem;
 }
 
+h1, h2, h3 {
+    color: var(--foreground-color); 
+    margin: 0; 
+}
+
+h1 {
+    font-size: 2.5rem; 
+    margin-bottom: 20px; 
+}
+
+h2 {
+    font-size: 2rem; 
+    margin-bottom: 15px;
+}
+
+h3 {
+    font-size: 1.5rem; 
+    margin-bottom: 10px; 
+}
+
+p {
+    line-height: 1.6; 
+    margin-bottom: 20px; 
+}
+
+.btn {
+    background-color: var(--blue-color); 
+    border-radius: 5px; 
+    font-size: 1rem;
+    text-decoration: none; 
+    transition: background-color 0.3s, transform 0.3s; 
+}
+
+.btn:hover {
+    background-color: var(--cyan-color); 
+    transform: translateY(-2px); 
+}
+
 ::-moz-selection {
-    /* Code for Firefox */
     color: var(--background-color);
     background: var(--bright-black-color);
 }
@@ -66,11 +106,13 @@ body {
 
 .link {
     color: var(--blue-color);
-    text-decoration: none;
+    text-decoration: underline;
+    transition: color 0.3s; 
 }
 
 .link:hover {
-    color: var(--cyan-color)
+    color: var(--cyan-color);
+    text-decoration: none; 
 }
 
 .name {
@@ -138,19 +180,34 @@ table {
 
 ::-webkit-scrollbar {
     height: 0px;
-    width: 3.69px;
+    width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-    background: transparent;
-    border-radius: 1rem;
+    background: var(--bright-black-color); 
+    border-radius: 10px; 
 }
 
 ::-webkit-scrollbar-thumb {
     background: var(--foreground-color);
     border-radius: 1rem;
+    
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #419fff;
+    background:var(--cyan-color);
+}
+
+@media (max-width: 768px) {
+    #terminal {
+        height: 90%;
+    }
+
+    #input-line {
+        max-width: 100%; 
+    }
+
+    #command-line {
+        max-width: calc(100% - 60px); 
+    }
 }
