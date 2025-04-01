@@ -1,0 +1,215 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+
+:root {
+    --background-color: #1F2430;
+    --foreground-color: #FFA759;
+    --red-color: #FF3333;
+    --green-color: #BAE67E;
+    --yellow-color: #FFA759;
+    --blue-color: #73D0FF;
+    --purple-color: #D4BFFF;
+    --cyan-color: #95E6CB;
+    --white-color: #CBCCC6;
+    --bright-black-color: #707A8C;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #1F2430, #2A2E3B); 
+    color: var(--foreground-color);
+   
+}
+
+#terminal-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: rgba(31, 36, 48, 0.9); 
+    border-radius: 15px; 
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); 
+}
+
+h1, h2, h3 {
+    color: var(--foreground-color); 
+    margin: 0; 
+}
+
+h1 {
+    font-size: 2.5rem; 
+    margin-bottom: 20px; 
+}
+
+h2 {
+    font-size: 2rem; 
+    margin-bottom: 15px;
+}
+
+h3 {
+    font-size: 1.5rem; 
+    margin-bottom: 10px; 
+}
+
+p {
+    line-height: 1.6; 
+    margin-bottom: 20px; 
+}
+
+.btn {
+    background-color: var(--blue-color); 
+    border-radius: 5px; 
+    font-size: 1rem;
+    text-decoration: none; 
+    transition: background-color 0.3s, transform 0.3s; 
+}
+
+.btn:hover {
+    background-color: var(--cyan-color); 
+    transform: translateY(-2px); 
+}
+
+#terminal {
+    background-color: var(--background-color);
+    border-radius: 10px;
+    border: 2px solid var(--foreground-color);
+    width: 90%;
+    max-width: 90%;
+    height: 80%;
+    overflow-y: auto;
+    font-family: "JetBrains Mono", monospace;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 1.1rem;
+    padding: 1rem;
+}
+
+::-moz-selection {
+    /* Code for Firefox */
+    color: var(--background-color);
+    background: var(--bright-black-color);
+}
+
+::selection {
+    color: var(--background-color);
+    background: var(--bright-black-color);
+}
+
+#terminal-output {
+    white-space: pre-line;
+}
+
+.output {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    padding-left: 1rem;
+}
+
+.link {
+    color: var(--blue-color);
+    text-decoration: underline;
+    transition: color 0.3s; 
+}
+
+.link:hover {
+    color: var(--cyan-color);
+    text-decoration: none; 
+}
+
+.name {
+    color: var(--purple-color);
+}
+
+.available-command {
+    color: var(--green-color);
+}
+
+.unavailable-command {
+    color: var(--red-color);
+}
+
+table {
+    border-collapse: collapse;
+}
+
+.available-command,
+.name,
+.command-description,
+.description {
+    padding: 10px 20px;
+}
+
+.available-command {
+    text-align: left;
+}
+
+.command-description {
+    text-align: left;
+}
+
+#command-line {
+    font-family: "JetBrains Mono", monospace;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 1.1rem;
+}
+
+#input-line {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    max-width: 10rem;
+}
+
+#command-line {
+    max-width: calc(100% - 80px);
+    flex-grow: 1;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: var(--foreground-color);
+    caret-color: var(--foreground-color);
+}
+
+#prompt {
+    white-space: nowrap;
+    font-size: 1.1rem;
+    color: var(--red-color);
+    padding: 1rem;
+}
+
+::-webkit-scrollbar {
+    height: 0px;
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    border-radius: 1rem;
+    background: var(--bright-black-color); 
+    border-radius: 10px; 
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--foreground-color);
+    border-radius: 1rem;
+}
+
+::-webkit-scrollbar-thumb:hover {
+background:var(--cyan-color);
+}
+
+@media (max-width: 768px) {
+    #terminal {
+        height: 90%;
+    }
+
+    #input-line {
+        max-width: 100%; 
+    }
+
+    #command-line {
+        max-width: calc(100% - 60px); 
+    }
+}
