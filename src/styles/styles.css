@@ -16,7 +16,7 @@
 body {
     margin: 0;
     padding: 0;
-    background: linear-gradient(135deg, #1F2430, #2A2E3B);
+    background: linear-gradient(135deg, #2f5ecd, #2A2E3B);
     background-color: #121212; 
     color: #E0E0E0; 
     font-family: 'Courier New', monospace; 
@@ -26,7 +26,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;background: linear-gradient(135deg, #1e1e1e, #2a2a2a);background-color: rgba(31, 36, 48, 0.9); 
+    height: 100vh;background: linear-gradient(135deg, #1e1e1e, #043eba);background-color: rgba(31, 36, 48, 0.9); 
     border-radius: 15px; 
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); 
 }
@@ -114,6 +114,11 @@ p {
 #terminal-output {
     white-space: pre-line;
     padding-top: 0.5rem !important;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    padding-left: 1rem;
+    font-family: var(--font-family), monospace;
+    color: #5A5A5A;
 }
 
 .icon {
@@ -122,13 +127,7 @@ p {
     margin-right: 8px; /* Space between icon and text */
 }
 
-.output {
-    white-space: pre-wrap;
-    word-wrap: break-word;
-    padding-left: 1rem;
-    font-family: var(--font-family), monospace;
-    color: #5A5A5A;
-}
+
 
 .link {
     color: var(--blue-color);
