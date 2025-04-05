@@ -16,8 +16,10 @@
 body {
     margin: 0;
     padding: 0;
-    background: linear-gradient(135deg, #1F2430, #2A2E3B); 
-    color: var(--foreground-color);
+    background: linear-gradient(135deg, #1F2430, #2A2E3B);
+    background-color: #121212; 
+    color: #E0E0E0; 
+    font-family: 'Courier New', monospace; 
 }
 
 #terminal-container {
@@ -43,6 +45,8 @@ body {
     font-style: normal;
     font-size: 1.1rem;
     padding: 0 1rem 1rem 1rem;
+    background-color: #F5F5F5; 
+    border: 2px solid #007BFF;
 }
 
 .terminal-header {
@@ -81,13 +85,20 @@ p {
     font-size: 1rem;
     text-decoration: none; 
     transition: background-color 0.3s, transform 0.3s; 
+    background-color: #3A3A3A; 
+    color: #FFFFFF;
+    transition: background-color 0.3s, transform 0.3s;
 }
 
 .btn:hover {
-    background-color: var(--cyan-color); 
     transform: translateY(-2px); 
+    background-color: #5A5A5A;
+    transform: scale(1.05); 
 }
 
+.card, #terminal {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); 
+}
 
 ::-moz-selection {
     /* Code for Firefox */
@@ -105,23 +116,32 @@ p {
     padding-top: 0.5rem !important;
 }
 
+.icon {
+    width: 24px; 
+    height: 24px;
+    margin-right: 8px; /* Space between icon and text */
+}
+
 .output {
     white-space: pre-wrap;
     word-wrap: break-word;
     padding-left: 1rem;
     font-family: var(--font-family), monospace;
+    color: #5A5A5A;
 }
 
 .link {
     color: var(--blue-color);
     text-decoration: underline;
-    transition: color 0.3s; 
+    transition: color 0.3s, text-shadow 0.3s; 
 }
 
 
 .link:hover {
     color: var(--cyan-color);
     text-decoration: none; 
+    color: var(--cyan-color); 
+    text-shadow: 0 0 5px var(--blue-color); 
 }
 
 .name {
@@ -178,6 +198,17 @@ table {
     align-items: center;
     max-width: 100%;
 }
+    input, textarea {
+        border: 1px solid var(--bright-black-color); /* Border color */
+        border-radius: 5px; /* Rounded corners */
+        padding: 10px; /* Padding for inputs */
+        width: 100%; /* Full width */
+        transition: border-color 0.3s; /* Smooth border color change */
+    }
+    
+    input:focus, textarea:focus {
+        border-color: var(--blue-color); /* Change border color on focus */
+    }
 
 #input-line:focus-within {
     background-color: rgba(255, 255, 255, 0.1);
@@ -247,6 +278,15 @@ table {
 
     #command-line {
         max-width: calc(100% - 60px); 
+    }
+}
+@media (max-width: 768px) {
+    #terminal {
+        height: 90%; 
+    }
+
+    .btn {
+        width: 100%;
     }
 }
 
@@ -324,9 +364,25 @@ table {
     width: 40px;
     height: 40px;
     animation: spin 2s linear infinite;
-}
+    }
+    
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
 
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
+    footer {
+        background-color: var(--background-color);
+        color: var(--foreground-color);
+        padding: 20px;
+        text-align: center; 
+    }
+    
+    footer a {
+        color: var(--blue-color); 
+        margin: 0 10px; 
+    }
+    
+    footer a:hover {
+        color: var(--cyan-color); 
+    }
