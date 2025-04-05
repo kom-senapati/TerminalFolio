@@ -16,15 +16,19 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: var(--background-color);
-    color: var(--foreground-color);
+    background: linear-gradient(135deg, #2f5ecd, #2A2E3B);
+    background-color: #121212; 
+    color: #E0E0E0; 
+    font-family: 'Courier New', monospace; 
 }
 
 #terminal-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 100vh;background: linear-gradient(135deg, #1e1e1e, #043eba);background-color: rgba(31, 36, 48, 0.9); 
+    border-radius: 15px; 
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); 
 }
 
 #terminal {
@@ -41,6 +45,59 @@ body {
     font-style: normal;
     font-size: 1.1rem;
     padding: 0 1rem 1rem 1rem;
+    background-color: #F5F5F5; 
+    border: 2px solid #007BFF;
+}
+
+.terminal-header {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    text-shadow: 0 0 5px #00ff00;
+}
+
+h1, h2, h3 {
+    color: var(--foreground-color); 
+    margin: 0; 
+}
+
+h1 {
+    font-size: 2.5rem; 
+    margin-bottom: 20px; 
+}
+
+h2 {
+    font-size: 2rem; 
+    margin-bottom: 15px;
+}
+
+h3 {
+    font-size: 1.5rem; 
+    margin-bottom: 10px; 
+}
+
+p {
+    line-height: 1.6; 
+    margin-bottom: 20px; 
+}
+
+.btn {
+    background-color: var(--blue-color); 
+    border-radius: 5px; 
+    font-size: 1rem;
+    text-decoration: none; 
+    transition: background-color 0.3s, transform 0.3s; 
+    background-color: #3A3A3A; 
+    color: #FFFFFF;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.btn:hover {
+    transform: translateY(-2px); 
+    background-color: #5A5A5A;
+    transform: scale(1.05); 
+}
+
+.card, #terminal {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); 
 }
 
 ::-moz-selection {
@@ -57,22 +114,33 @@ body {
 #terminal-output {
     white-space: pre-line;
     padding-top: 0.5rem !important;
-}
-
-.output {
     white-space: pre-wrap;
     word-wrap: break-word;
     padding-left: 1rem;
     font-family: var(--font-family), monospace;
+    color: #5A5A5A;
 }
+
+.icon {
+    width: 24px; 
+    height: 24px;
+    margin-right: 8px; /* Space between icon and text */
+}
+
+
 
 .link {
     color: var(--blue-color);
-    text-decoration: none;
+    text-decoration: underline;
+    transition: color 0.3s, text-shadow 0.3s; 
 }
 
+
 .link:hover {
-    color: var(--cyan-color)
+    color: var(--cyan-color);
+    text-decoration: none; 
+    color: var(--cyan-color); 
+    text-shadow: 0 0 5px var(--blue-color); 
 }
 
 .name {
@@ -112,6 +180,15 @@ table {
     font-weight: 500;
     font-style: normal;
     font-size: 1.1rem;
+    border: none;
+    outline: none;
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+    50% {
+        border-color: transparent;
+    }
 }
 
 #input-line {
@@ -119,6 +196,21 @@ table {
     flex-direction: row;
     align-items: center;
     max-width: 100%;
+}
+    input, textarea {
+        border: 1px solid var(--bright-black-color); /* Border color */
+        border-radius: 5px; /* Rounded corners */
+        padding: 10px; /* Padding for inputs */
+        width: 100%; /* Full width */
+        transition: border-color 0.3s; /* Smooth border color change */
+    }
+    
+    input:focus, textarea:focus {
+        border-color: var(--blue-color); /* Change border color on focus */
+    }
+
+#input-line:focus-within {
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
 #command-line {
@@ -138,22 +230,30 @@ table {
     font-size: 1.1rem;
 }
 
-
+.control {
+    transition: background-color 0.3s;
+}
+.control:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
 #prompt {
     white-space: nowrap;
     font-size: 1.1rem;
     color: var(--red-color);
     padding: 1rem;
 }
+.error { color: red; }
+.success { color: green; }
+
 
 ::-webkit-scrollbar {
     height: 0px;
-    width: 3.69px;
+    width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-    background: transparent;
-    border-radius: 1rem;
+    background: var(--bright-black-color); 
+    border-radius: 10px; 
 }
 
 ::-webkit-scrollbar-thumb {
@@ -163,6 +263,30 @@ table {
 
 ::-webkit-scrollbar-thumb:hover {
     background: #419fff;
+    background:var(--cyan-color);
+}
+
+@media (max-width: 768px) {
+    #terminal {
+        height: 90%;
+    }
+
+    #input-line {
+        max-width: 100%; 
+    }
+
+    #command-line {
+        max-width: calc(100% - 60px); 
+    }
+}
+@media (max-width: 768px) {
+    #terminal {
+        height: 90%; 
+    }
+
+    .btn {
+        width: 100%;
+    }
 }
 
 #terminal {
@@ -232,4 +356,32 @@ table {
     word-wrap: break-word;
     padding-left: 1rem;
     font-family: var(--font-family), monospace;
-}
+    display: block;
+    border: 8px solid #f3f3f3;
+    border-top: 8px solid #3498db;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 2s linear infinite;
+    }
+    
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+
+    footer {
+        background-color: var(--background-color);
+        color: var(--foreground-color);
+        padding: 20px;
+        text-align: center; 
+    }
+    
+    footer a {
+        color: var(--blue-color); 
+        margin: 0 10px; 
+    }
+    
+    footer a:hover {
+        color: var(--cyan-color); 
+    }
