@@ -18,6 +18,7 @@ body {
     padding: 0;
     background-color: var(--background-color);
     color: var(--foreground-color);
+    background: linear-gradient(135deg, #1F2430, #2C2F3A);
 }
 
 #terminal-container {
@@ -41,17 +42,20 @@ body {
     font-style: normal;
     font-size: 1.1rem;
     padding: 0 1rem 1rem 1rem;
+    background: linear-gradient(90deg, #0ceded, #FFBD2E);
 }
 
 ::-moz-selection {
     /* Code for Firefox */
     color: var(--background-color);
     background: var(--bright-black-color);
+    background: linear-gradient(90deg, #FFA759, #FF3333);
 }
 
 ::selection {
     color: var(--background-color);
     background: var(--bright-black-color);
+    background: linear-gradient(90deg, #FFA759, #FF3333);
 }
 
 #terminal-output {
@@ -69,10 +73,14 @@ body {
 .link {
     color: var(--blue-color);
     text-decoration: none;
+    background: linear-gradient(90deg, #D4BFFF, #95E6CB);
 }
 
 .link:hover {
-    color: var(--cyan-color)
+    color: var(--cyan-color);
+    background: linear-gradient(90deg, #D4BFFF, #95E6CB);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .name {
