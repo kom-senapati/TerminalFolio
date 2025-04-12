@@ -42,20 +42,20 @@ body {
     font-style: normal;
     font-size: 1.1rem;
     padding: 0 1rem 1rem 1rem;
-    background: linear-gradient(90deg, #0ceded, #FFBD2E);
+    background: linear-gradient(90deg, #0ceded,rgb(34, 89, 217), #1813ab);
 }
 
 ::-moz-selection {
     /* Code for Firefox */
     color: var(--background-color);
     background: var(--bright-black-color);
-    background: linear-gradient(90deg, #FFA759, #FF3333);
+    background: linear-gradient(90deg, #5ec1da, #0b39ae);
 }
 
 ::selection {
     color: var(--background-color);
     background: var(--bright-black-color);
-    background: linear-gradient(90deg, #FFA759, #FF3333);
+    background: linear-gradient(90deg, #7fa6f5, #120ae8);
 }
 
 #terminal-output {
@@ -240,4 +240,87 @@ table {
     word-wrap: break-word;
     padding-left: 1rem;
     font-family: var(--font-family), monospace;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+.fade-in {
+    animation: fadeIn 1s ease-in;
+}
+
+.button:hover {
+    transform: scale(1.05);
+    background-color: var(--blue-color);
+}
+
+.button, .link {
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.button:hover, .link:hover {
+    transform: scale(1.1);
+    background-color: var(--blue-color);
+    color: var(--white-color);
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bright-black-color);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--foreground-color);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--blue-color);
+}
+
+:root {
+    --background-color: #1F2430; /* Dark theme */
+    --foreground-color: #FFA759;
+}
+
+.light-theme {
+    --background-color: #FFFFFF; /* Light theme */
+    --foreground-color: #000000;
+}
+.card {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.3s ease;
+}
+
+.card:hover {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+body {
+    background: linear-gradient(270deg, #1F2430, #2C2F3A);
+    background-size: 400% 400%;
+    animation: gradientAnimation 15s ease infinite;
+}
+.loader {
+    border: 8px solid var(--foreground-color);
+    border-top: 8px solid var(--blue-color);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
